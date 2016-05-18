@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<GridPane alignment="center" hgap="10" prefHeight="512.0" prefWidth="768.0" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller">
+   <columnConstraints>
+      <ColumnConstraints hgrow="ALWAYS" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints vgrow="ALWAYS" />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="512.0" prefWidth="768.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <HBox prefHeight="35.0" prefWidth="532.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Your Computer MAC Address" />
+                                       </children>
+                                    </VBox>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label fx:id="macAddressLabel" text="unknown...(do you have bluetooth on pc?)" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="71.0" prefHeight="35.0" prefWidth="532.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Your Mixer to Output Audio" />
+                                       </children>
+                                    </VBox>
+                                    <HBox alignment="CENTER" prefHeight="35.0" prefWidth="150.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <ChoiceBox fx:id="outputAudioChoiceBox" prefHeight="25.0" prefWidth="300.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label fx:id="outputAudioLabel" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="10.0" layoutY="110.0" prefHeight="35.0" prefWidth="532.0">
+                                 <children>
+                                    <VBox alignment="CENTER" prefHeight="35.0" prefWidth="200.0">
+                                       <children>
+                                          <Label text="Audio Output Format" />
+                                       </children>
+                                    </VBox>
+                                    <HBox alignment="CENTER" prefHeight="35.0" prefWidth="150.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <ChoiceBox fx:id="outputFormatOneChoiceBox" prefHeight="25.0" prefWidth="300.0" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <ChoiceBox fx:id="outputFormatTwoChoiceBox" prefHeight="25.0" prefWidth="150.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="90.0" prefWidth="766.0" />
+                              <Separator prefHeight="0.0" prefWidth="766.0" VBox.vgrow="ALWAYS" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="226.0">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Button fx:id="button_start" disable="true" mnemonicParsing="false" onAction="#start" text="Start" />
+                                          <Button fx:id="button_cancel" disable="true" mnemonicParsing="false" onAction="#cancel" text="Cancel" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <ProgressBar fx:id="progressBar" prefHeight="18.0" prefWidth="200.0" progress="0.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children></AnchorPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                     <children>
+                        <TextArea fx:id="consoleLikeTextArea" layoutX="196.0" layoutY="-25.0" prefHeight="200.0" prefWidth="200.0" wrapText="true" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="3.0" />
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>
