@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_bluetoothamplifierserver" default="compile.module.bluetoothamplifierserver">
+  <dirname property="module.bluetoothamplifierserver.basedir" file="${ant.file.module_bluetoothamplifierserver}"/>
+  
+  <property name="module.jdk.home.bluetoothamplifierserver" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.bluetoothamplifierserver" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.bluetoothamplifierserver" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.bluetoothamplifierserver" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="bluetoothamplifierserver.output.dir" value="${module.bluetoothamplifierserver.basedir}/out/production/BluetoothAmplifierServer"/>
+  <property name="bluetoothamplifierserver.testoutput.dir" value="${module.bluetoothamplifierserver.basedir}/out/test/BluetoothAmplifierServer"/>
+  
+  <path id="bluetoothamplifierserver.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="bluetoothamplifierserver.module.production.classpath">
+    <path refid="${module.jdk.classpath.bluetoothamplifierserver}"/>
+    <path refid="library.bluecove-2.1.1-snapshot.classpath"/>
+  </path>
+  
+  <path id="bluetoothamplifierserver.runtime.production.module.classpath">
+    <pathelement location="${bluetoothamplifierserver.output.dir}"/>
+    <path refid="library.bluecove-2.1.1-snapshot.classpath"/>
+  </path>
+  
+  <path id="bluetoothamplifierserver.module.classpath">
+    <path refid="${module.jdk.classpath.bluetoothamplifierserver}"/>
+    <pathelement location="${bluetoothamplifierserver.output.dir}"/>
+    <path refid="library.bluecove-2.1.1-snapshot.classpath"/>
+  </path>
+  
+  <path id="bluetoothamplifierserver.runtime.module.classpath">
+    <pathelement location="${bluetoothamplifierserver.testoutput.dir}"/>
+    <pathelement location="${bluetoothamplifierserver.output.dir}"/>
+    <path refid="library.bluecove-2.1.1-snapshot.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.bluetoothamplifierserver">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.bluetoothamplifierserver">
+    <patternset refid="excluded.from.module.bluetoothamplifierserver"/>
+  </patternset>
+  
+  <path id="bluetoothamplifierserver.module.sourcepath">
+    <dirset dir="${module.bluetoothamplifierserver.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.bluetoothamplifierserver" depends="compile.module.bluetoothamplifierserver.production,compile.module.bluetoothamplifierserver.tests" description="Compile module BluetoothAmplifierServer"/>
+  
+  <target name="compile.module.bluetoothamplifierserver.production" depends="register.custom.compilers" description="Compile module BluetoothAmplifierServer; production classes">
+    <mkdir dir="${bluetoothamplifierserver.output.dir}"/>
+    <javac2 destdir="${bluetoothamplifierserver.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.bluetoothamplifierserver}/javac">
+      <compilerarg line="${compiler.args.bluetoothamplifierserver}"/>
+      <bootclasspath refid="bluetoothamplifierserver.module.bootclasspath"/>
+      <classpath refid="bluetoothamplifierserver.module.production.classpath"/>
+      <src refid="bluetoothamplifierserver.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.bluetoothamplifierserver"/>
+    </javac2>
+    
+    <copy todir="${bluetoothamplifierserver.output.dir}">
+      <fileset dir="${module.bluetoothamplifierserver.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.bluetoothamplifierserver.tests" depends="register.custom.compilers,compile.module.bluetoothamplifierserver.production" description="compile module BluetoothAmplifierServer; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.bluetoothamplifierserver" description="cleanup module">
+    <delete dir="${bluetoothamplifierserver.output.dir}"/>
+    <delete dir="${bluetoothamplifierserver.testoutput.dir}"/>
+  </target>
+</project>

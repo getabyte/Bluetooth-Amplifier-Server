@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="BluetoothAmplifierServer.jnlp">
+  <information>
+    <title>Bluetooth Amplifier Server</title>
+    <vendor>Unknown</vendor>
+    <description>BluetoothAmplifierServer</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="BluetoothAmplifierServer.jar" size="13311" download="eager" />
+    <jar href="lib\bluecove-2.1.1-SNAPSHOT.jar" size="668747" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="768" height="512" main-class="main.Main"  name="BluetoothAmplifierServer" />
+  <update check="background"/>
+</jnlp>
